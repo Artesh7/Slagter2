@@ -2,21 +2,30 @@ package com.example.slagter2.Model;
 import java.util.Date;
 
 public class Animal {
-    private Integer registrationNumber;
+    private int animalID;
+    private String name;
     private Date date;
     private Double weight;
     private String origin;
 
-    public Integer getRegistrationNumber() {
-        return registrationNumber;
+    public int getAnimalID() {
+        return animalID;
     }
 
-    public void setRegistrationNumber(Integer registrationNumber) {
-        this.registrationNumber = registrationNumber;
+    public void setAnimalID(int animalID) {
+        this.animalID = animalID;
     }
 
     public Date getDate() {
         return date;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setDate(Date date) {
