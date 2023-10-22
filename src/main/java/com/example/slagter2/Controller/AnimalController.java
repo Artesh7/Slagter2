@@ -3,6 +3,8 @@ package com.example.slagter2.Controller;
 import com.example.slagter2.Model.Animal;
 import com.example.slagter2.Repository.AnimalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
@@ -51,4 +53,15 @@ public class AnimalController {
     public List<Animal> getAnimalsByOrigin(@PathVariable String origin) {
         return animalRepository.getAnimalsByOrigin(origin);
     }
+
+    @DeleteMapping("/{registrationNumber}")
+    public ResponseEntity<?> deleteAnimal(@PathVariable int registrationNumber) {
+        boolean isDeleted = animalRepository.deleteAnimal(registrationNumber);
+        if (isDeleted) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>("Animal with ID "+registrationNumber + " dosen't exist", HttpStatus.NOT_FOUND);
+        }
+    }
+
 }

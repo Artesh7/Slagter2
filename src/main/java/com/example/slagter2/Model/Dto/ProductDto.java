@@ -3,6 +3,12 @@ package com.example.slagter2.Model.Dto;
 import com.example.slagter2.Model.Animal;
 
 public class ProductDto {
+
+    private String name;
+    private double price;
+
+    private int animalId;
+
     public String getName() {
         return name;
     }
@@ -19,17 +25,11 @@ public class ProductDto {
         this.price = price;
     }
 
-    public Animal getAnimal() {
-        return animal;
+    public int getAnimalId() {
+        return animalId;
     }
 
-    public void setAnimal(Animal animal) {
-        this.animal = animal;
+    public void setAnimalId(int animalId) {
+        this.animalId = animalId;
     }
-
-    private String name;
-    private double price;
-
-    private Animal animal;
-
 }

@@ -69,4 +69,10 @@ public class AnimalRepository {
         animal.setOrigin(rs.getString("origin"));
         return animal;
     }
+
+    public boolean deleteAnimal(int registrationNumber) {
+        String sql = "DELETE FROM sdj.animal WHERE animalId = ?";
+        int affectedRows = jdbcTemplate.update(sql, registrationNumber);
+        return affectedRows > 0;
+    }
 }
